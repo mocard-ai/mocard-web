@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <title>文章 | MoCard</title>
+  <meta name="description" content="信用卡懶人包、高利息數位帳戶、LINE Pay 神卡推薦。">
+  <meta name="keywords" content="高利息數位帳戶, LINE Pay 神卡, 信用卡推薦, 數位帳戶比較">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="文章 | MoCard">
+  <meta property="og:description" content="信用卡懶人包、高利息數位帳戶、LINE Pay 神卡推薦。">
+  <meta property="og:url" content="">
+  <script type="application/ld+json" id="article-jsonld"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><img src="images/logo.png" alt="MoCard"></a>
+      <button class="nav-toggle" type="button" aria-label="開啟選單" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index.html">認識 MoCard</a></li>
+          <li><a href="faq.html">常見問題</a></li>
+          <li><a href="about.html">關於</a></li>
+          <li><a href="blog.html">文章</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="header-cta">立即使用</a>
+    </div>
+  </header>
+
+  <main>
+    <article class="page-wrapper main-content" id="article-root">
+      <p style="margin-bottom: var(--space-md);">
+        <a href="blog.html" style="color: var(--color-accent); text-decoration: none; font-size: 0.9rem;">← 回文章列表</a>
+      </p>
+      <div id="article-loading">載入中…</div>
+      <header class="article-header" id="article-header" style="display: none;">
+        <h1 id="article-title"></h1>
+        <time class="date" id="article-date"></time>
+      </header>
+      <div class="article-body markdown-body" id="article-body" style="display: none;"></div>
+      <div class="article-cta-block" id="article-cta" style="display: none;">
+        <p class="article-cta-text">還在上網查詢信用卡回饋、權益資訊嗎？</p>
+        <p class="article-cta-sub">立即使用 MoCard 刷卡推薦，一問就有</p>
+        <a href="#" class="cta-button article-cta-btn">立即使用</a>
+      </div>
+      <div id="article-not-found" style="display: none;">找不到該文章。</div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><a href="index.html"><img src="images/logo.png" alt="MoCard"></a></div>
+      <nav class="footer-nav">
+        <a href="index.html">認識 MoCard</a>
+        <a href="faq.html">常見問題</a>
+        <a href="about.html">關於</a>
+        <a href="blog.html">文章</a>
+        <a href="privacy.html">隱私權政策</a>
+        <a href="terms.html">服務條款</a>
+        <a href="feedback.html">意見回饋</a>
+      </nav>
+      <div class="footer-copy">
+        © 2026 MoCard. All rights reserved. <span class="version">v0.1</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/blog-posts.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    (function() {
+      const params = new URLSearchParams(location.search);
+      const id = parseInt(params.get('id'), 10);
+      const post = typeof BLOG_POSTS !== 'undefined' ? BLOG_POSTS.find(function(p) { return p.id === id; }) : null;
+      const loading = document.getElementById('article-loading');
+      const header = document.getElementById('article-header');
+      const body = document.getElementById('article-body');
+      const notFound = document.getElementById('article-not-found');
+      if (!post) {
+        loading.style.display = 'none';
+        notFound.style.display = 'block';
+        return;
+      }
+      var seoDesc = post.description || (post.content || '').replace(/\n/g, ' ').replace(/#{1,6}\s/g, '').replace(/\*\*/g, '').trim().slice(0, 150) + '…';
+      document.title = post.title + ' | MoCard';
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.content = seoDesc;
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.content = post.title + ' | MoCard';
+      var ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.content = seoDesc;
+      var ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.content = window.location.href;
+      var ld = document.getElementById('article-jsonld');
+      if (ld) {
+        ld.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": seoDesc,
+          "datePublished": post.date,
+          "author": { "@type": "Organization", "name": "MoCard" },
+          "publisher": { "@type": "Organization", "name": "MoCard" }
+        });
+      }
+      loading.style.display = 'none';
+      header.style.display = 'block';
+      body.style.display = 'block';
+      var cta = document.getElementById('article-cta');
+      if (cta) cta.style.display = 'block';
+      document.getElementById('article-title').textContent = post.title;
+      var dateEl = document.getElementById('article-date');
+      dateEl.textContent = post.date;
+      dateEl.setAttribute('datetime', post.date);
+      if (typeof marked !== 'undefined') {
+        body.innerHTML = marked.parse(post.content || '');
+      } else {
+        body.textContent = post.content;
+      }
+    })();
+  </script>
+</body>
+</html>
