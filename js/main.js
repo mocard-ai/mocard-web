@@ -71,14 +71,19 @@ function initNav() {
 
   toggle.addEventListener('click', () => {
     menu.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', menu.classList.contains('is-open'));
+    const open = menu.classList.contains('is-open');
+    toggle.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
   });
 
   // Close menu when clicking a link (for in-page nav)
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menu.classList.remove('is-open');
+      toggle.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', '開啟選單');
     });
   });
 
@@ -86,7 +91,9 @@ function initNav() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       menu.classList.remove('is-open');
+      toggle.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', '開啟選單');
     }
   });
 }

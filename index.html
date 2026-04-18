@@ -20,11 +20,19 @@
     <div class="header-inner">
       <a href="index.html" class="site-logo"><img src="images/logo.png" alt="MoCard"></a>
       <button class="nav-toggle" type="button" aria-label="開啟選單" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
+        <span class="nav-toggle-icon nav-toggle-icon--menu" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </span>
+        <span class="nav-toggle-icon nav-toggle-icon--close" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </span>
       </button>
       <nav class="nav-menu">
         <ul>
@@ -45,11 +53,13 @@
         <div class="hero-content">
           <h1>刷卡推薦，一問就有</h1>
           <p class="hero-sub">無論線上或實體消費，MoCard 即時分析回饋，幫你選出最好的那張卡</p>
+          <p class="hero-highlight">
+            <span class="hero-tag">收錄 <strong>200+</strong> 張信用卡，涵蓋全台 <strong>90%</strong> 常見卡別</span>
+          </p>
           <a href="#" class="cta-button">立即使用</a>
         </div>
-        <!-- 預留：App UI 示意圖區域 -->
         <div class="hero-card-placeholder">
-          <p class="hero-card-hint">此處預留放置 App UI 示意圖</p>
+          <img src="images/banner.png" alt="MoCard App 使用情境示意" class="hero-banner-img">
         </div>
         <!-- 主色系三角形裝飾區塊 -->
         <div class="hero-decoration" aria-hidden="true"></div>
@@ -87,27 +97,36 @@
 
       <!-- 使用流程 -->
       <section class="section how-it-works">
-        <h2 class="section-title">怎麼開始用</h2>
+        <h2 class="section-title">怎麼開始用?</h2>
         <div class="steps">
           <div class="step">
-            <span class="step-num">1</span>
+            <div class="step-num-row">
+              <span class="step-num">1</span>
+            </div>
             <div class="step-content">
               <h3>快速登入</h3>
-              <p>安裝 APP，使用 Google 帳戶註冊。</p>
+              <p>點擊「立即使用」，使用 Google 帳戶註冊。</p>
+              <img src="images/s01.png" alt="快速登入步驟示意" class="step-illustration" loading="lazy">
             </div>
           </div>
           <div class="step">
-            <span class="step-num">2</span>
+            <div class="step-num-row">
+              <span class="step-num">2</span>
+            </div>
             <div class="step-content">
               <h3>選擇已持有的信用卡</h3>
               <p>告訴 MoCard 你有哪些卡。不需卡號、不需個資，只需選擇卡片名稱。</p>
+              <img src="images/s02.png" alt="選擇信用卡步驟示意" class="step-illustration" loading="lazy">
             </div>
           </div>
           <div class="step">
-            <span class="step-num">3</span>
+            <div class="step-num-row">
+              <span class="step-num">3</span>
+            </div>
             <div class="step-content">
               <h3>聊天獲得推薦</h3>
               <p>隨時問「這筆該刷哪張？」「這張卡有什麼優惠？」立刻得到答案。</p>
+              <img src="images/s03.png" alt="聊天獲得推薦步驟示意" class="step-illustration" loading="lazy">
             </div>
           </div>
         </div>
@@ -156,7 +175,7 @@
         <a href="feedback.html">意見回饋</a>
       </nav>
       <div class="footer-copy">
-        © 2026 MoCard. All rights reserved. <span class="version">v0.1</span>
+        © 2026 MoCard. All rights reserved. <span class="version">v0.2</span>
       </div>
     </div>
   </footer>
