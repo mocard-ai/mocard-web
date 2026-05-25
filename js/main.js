@@ -168,7 +168,6 @@ function createMobilePwaSheet() {
   root.innerHTML =
     '<div class="mobile-pwa-sheet-backdrop" data-mobile-pwa-dismiss tabindex="-1"></div>' +
     '<div class="mobile-pwa-sheet-panel">' +
-    '<button type="button" class="mobile-pwa-sheet-close" aria-label="關閉" data-mobile-pwa-dismiss>&times;</button>' +
     '<h2 id="mobile-pwa-sheet-title" class="mobile-pwa-sheet-title">加入主畫面已獲得最佳使用體驗</h2>' +
     '<div class="mobile-pwa-sheet-media">' +
     '<img src="images/chrome_pwa.GIF" alt="將網頁加入主畫面操作示意（以 Chrome 為例）" loading="lazy">' +
