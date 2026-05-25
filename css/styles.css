@@ -1334,6 +1334,9 @@ body {
   height: 56px;
   border-radius: 14px;
   object-fit: contain;
+  border: 1px solid var(--color-border);
+  box-sizing: border-box;
+  background: var(--color-bg-card);
 }
 
 .inapp-sheet-title {
@@ -1393,18 +1396,6 @@ body {
 
 .inapp-sheet-step-text strong {
   font-weight: 700;
-}
-
-.inapp-sheet-extra {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  text-align: center;
-  line-height: 1.5;
-}
-
-.inapp-sheet-extra strong {
-  color: var(--color-text);
-  font-weight: 600;
 }
 
 /* ===== 手機立即使用：Web App / 加入主畫面引導 bottom sheet ===== */
@@ -1479,27 +1470,14 @@ body {
 }
 
 .mobile-pwa-sheet-title {
-  margin: 0 var(--space-xl) var(--space-sm) var(--space-xl);
-  padding-right: var(--space-md);
-  font-size: 1.125rem;
+  margin: 0 2.5rem var(--space-md) var(--space-sm);
+  padding: 0;
+  font-size: clamp(0.82rem, 3.95vw, 1.0625rem);
   font-weight: 700;
   text-align: center;
   color: var(--color-text);
   line-height: 1.35;
-}
-
-.mobile-pwa-sheet-desc,
-.mobile-pwa-sheet-hint {
-  margin: 0 0 var(--space-sm);
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  text-align: center;
-  line-height: 1.55;
-}
-
-.mobile-pwa-sheet-hint {
-  margin-bottom: var(--space-md);
-  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 .mobile-pwa-sheet-media {

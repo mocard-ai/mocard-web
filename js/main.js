@@ -97,21 +97,20 @@ function createInAppBrowserSheet() {
     '<div class="inapp-sheet-panel">' +
       '<button type="button" class="inapp-sheet-close" aria-label="關閉" data-inapp-sheet-close>&times;</button>' +
       '<div class="inapp-sheet-brand">' +
-        '<img src="images/logo.png" alt="MoCard">' +
+        '<img src="images/favicon.png" alt="MoCard">' +
       '</div>' +
-      '<h2 id="inapp-sheet-title" class="inapp-sheet-title">請改用外部瀏覽器開啟。</h2>' +
+      '<h2 id="inapp-sheet-title" class="inapp-sheet-title">請改用外部瀏覽器開啟</h2>' +
       '<p class="inapp-sheet-intro">為了完整使用 MoCard 功能，請依下列方式用 Safari、Chrome 等瀏覽器開啟此頁。</p>' +
       '<div class="inapp-sheet-steps">' +
         '<div class="inapp-sheet-step">' +
           '<span class="inapp-sheet-step-num" aria-hidden="true">1</span>' +
-          '<p class="inapp-sheet-step-text">點擊右上角的<strong>「⋯」</strong>或<strong>「⋮」</strong></p>' +
+          '<p class="inapp-sheet-step-text">點擊<strong>右上角</strong>或<strong>右下角</strong>選單圖示，開啟操作選項</p>' +
         '</div>' +
         '<div class="inapp-sheet-step">' +
           '<span class="inapp-sheet-step-num" aria-hidden="true">2</span>' +
           '<p class="inapp-sheet-step-text">選擇<strong>「使用瀏覽器開啟」</strong>或<strong>「在瀏覽器中開啟」</strong></p>' +
         '</div>' +
       '</div>' +
-      '<div class="inapp-sheet-extra">若為 LINE，亦可點選右上角選單後選<strong>外部瀏覽器開啟</strong>。</div>' +
     '</div>';
   document.body.appendChild(root);
 
@@ -170,11 +169,9 @@ function createMobilePwaSheet() {
     '<div class="mobile-pwa-sheet-backdrop" data-mobile-pwa-dismiss tabindex="-1"></div>' +
     '<div class="mobile-pwa-sheet-panel">' +
     '<button type="button" class="mobile-pwa-sheet-close" aria-label="關閉" data-mobile-pwa-dismiss>&times;</button>' +
-    '<h2 id="mobile-pwa-sheet-title" class="mobile-pwa-sheet-title">加入主畫面，獲得最佳使用體驗</h2>' +
-    '<p class="mobile-pwa-sheet-desc">將 MoCard 加到螢幕主畫面，就像使用獨立 App：開啟更快速、版面更順手。</p>' +
-    '<p class="mobile-pwa-sheet-hint">請依下方示意，從瀏覽器選單將網站「加入主畫面」（各瀏覽器名稱可能略有不同）。</p>' +
+    '<h2 id="mobile-pwa-sheet-title" class="mobile-pwa-sheet-title">加入主畫面已獲得最佳使用體驗</h2>' +
     '<div class="mobile-pwa-sheet-media">' +
-    '<img src="images/chrome_pwa.gif" alt="將網頁加入主畫面操作示意（以 Chrome 為例）" loading="lazy">' +
+    '<img src="images/chrome_pwa.GIF" alt="將網頁加入主畫面操作示意（以 Chrome 為例）" loading="lazy">' +
     '</div>' +
     '<button type="button" class="mobile-pwa-sheet-confirm">我知道了</button>' +
     '</div>';
