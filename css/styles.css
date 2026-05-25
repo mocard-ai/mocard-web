@@ -1472,7 +1472,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 250px;
+  width: 220px;
   max-width: 100%;
   box-sizing: border-box;
   align-self: center;
@@ -1484,7 +1484,7 @@ body {
 
 .mobile-pwa-sheet-media img {
   display: block;
-  width: 250px;
+  width: 220px;
   max-width: 100%;
   height: auto;
   max-height: none;
