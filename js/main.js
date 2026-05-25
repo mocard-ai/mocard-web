@@ -14,6 +14,7 @@ const INAPP_GUIDE_STORAGE_KEY = 'mocard_inapp_guide_dismissed';
 
 /**
  * 是否為 FB / IG / Threads / LINE 等 App 內建瀏覽器（UA 判斷，非 100% 可靠）。
+ * Threads 內建瀏覽器常帶 Meta「Barcelona」組件與 IABMV，UA 未必含 "Threads"。
  */
 function isMoCardInAppBrowser() {
   if (typeof navigator === 'undefined' || !navigator.userAgent) return false;
@@ -22,6 +23,9 @@ function isMoCardInAppBrowser() {
   if (/Instagram/i.test(ua)) return true;
   if (/Line\/[0-9]/i.test(ua)) return true;
   if (/\bThreads\b|[\s;_]THREADS\b|Threads-iOS/i.test(ua)) return true;
+  /* Threads in-app：UA 多為 … Mobile/… Barcelona … IABMV/1 … */
+  if (/\bBarcelona\b/i.test(ua)) return true;
+  if (/\bIABMV\//i.test(ua)) return true;
   if (/FBAN\/|FBAV\/|\bFBAN\b|\bFBAV\b|FB_IAB|FB_IAB_\d+|FBIDS|\bFB4A\b/i.test(ua))
     return true;
 
