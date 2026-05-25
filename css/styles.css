@@ -1252,3 +1252,286 @@ body {
   line-height: 1.5;
 }
 
+/* ===== 內建瀏覽器引導（首頁，FB / IG / Threads / LINE 等） ===== */
+.inapp-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.28s ease,
+    visibility 0.28s;
+}
+
+.inapp-sheet.is-open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.inapp-sheet-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.inapp-sheet-panel {
+  position: relative;
+  background: #fff;
+  border-radius: 22px 22px 0 0;
+  padding: calc(var(--space-xl) + 4px) var(--space-lg) calc(var(--space-xl) + env(safe-area-inset-bottom));
+  padding-top: calc(var(--space-lg) + 8px);
+  max-height: min(88vh, 560px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(100%);
+  transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.inapp-sheet.is-open .inapp-sheet-panel {
+  transform: translateY(0);
+}
+
+.inapp-sheet-close {
+  position: absolute;
+  top: calc(var(--space-sm) + 4px);
+  right: calc(var(--space-sm) + 4px);
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inapp-sheet-close:hover {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+.inapp-sheet-brand {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+}
+
+.inapp-sheet-brand img {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  object-fit: contain;
+}
+
+.inapp-sheet-title {
+  margin: 0 0 var(--space-sm);
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-text);
+  line-height: 1.35;
+}
+
+.inapp-sheet-intro {
+  margin: 0 0 var(--space-lg);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.55;
+}
+
+.inapp-sheet-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.inapp-sheet-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-md);
+  background: #f4f4f6;
+  border-radius: 14px;
+}
+
+.inapp-sheet-step-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inapp-sheet-step-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  line-height: 1.45;
+  text-align: left;
+}
+
+.inapp-sheet-step-text strong {
+  font-weight: 700;
+}
+
+.inapp-sheet-extra {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.inapp-sheet-extra strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* ===== 手機立即使用：Web App / 加入主畫面引導 bottom sheet ===== */
+.mobile-pwa-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 2600;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.28s ease,
+    visibility 0.28s;
+}
+
+.mobile-pwa-sheet.is-open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-pwa-sheet-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.mobile-pwa-sheet-panel {
+  position: relative;
+  background: #fff;
+  border-radius: 22px 22px 0 0;
+  padding: calc(var(--space-xl) + 4px) var(--space-lg) calc(var(--space-lg) + env(safe-area-inset-bottom));
+  padding-top: calc(var(--space-lg) + 8px);
+  max-height: min(90vh, 640px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(100%);
+  transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.mobile-pwa-sheet.is-open .mobile-pwa-sheet-panel {
+  transform: translateY(0);
+}
+
+.mobile-pwa-sheet-close {
+  position: absolute;
+  top: calc(var(--space-sm) + 4px);
+  right: calc(var(--space-sm) + 4px);
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-pwa-sheet-close:hover {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+.mobile-pwa-sheet-title {
+  margin: 0 var(--space-xl) var(--space-sm) var(--space-xl);
+  padding-right: var(--space-md);
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-text);
+  line-height: 1.35;
+}
+
+.mobile-pwa-sheet-desc,
+.mobile-pwa-sheet-hint {
+  margin: 0 0 var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.55;
+}
+
+.mobile-pwa-sheet-hint {
+  margin-bottom: var(--space-md);
+  font-size: 0.8rem;
+}
+
+.mobile-pwa-sheet-media {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f4f4f6;
+  margin-bottom: var(--space-md);
+}
+
+.mobile-pwa-sheet-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mobile-pwa-sheet-confirm {
+  width: 100%;
+  display: block;
+  padding: 0.85rem var(--space-lg);
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  background: var(--color-accent);
+  color: #fff !important;
+  transition: background 0.2s;
+}
+
+.mobile-pwa-sheet-confirm:hover {
+  background: var(--color-accent-hover);
+}
+
